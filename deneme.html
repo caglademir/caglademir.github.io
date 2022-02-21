@@ -11,12 +11,25 @@
 </head>
 
 <body>
-    <script type="text/javascript" language="javascript">
-        var sayi1=prompt("birinci sayı:","");
-        var sayi2=prompt("ikinci sayı:","");
-        var sonuc=parseInt(sayi1)+parseFloat(sayi2);
-        alert(sonuc);
-        </script>
+    <input id="deger1" type="number" placeholder="Deger 1">
+    <input id="deger2" type="number" placeholder="Deger 2">
+    <a onclick="hesapla()">Hesapla</a>
+    <div id="sonuc">sonuc</div>
+    <script>
+        function hesapla() {
+            var deger1 = document.getElementById('deger1').value;
+            var deger2 = document.getElementById('deger2').value;
+            var sonuc = parseInt(deger1) + parseInt(deger2);
+            document.getElementById('sonuc').innerHTML = sonuc;
+
+        }
+    </script>
+
+
+
+
+
+
 </body>
 
 </html>
