@@ -6,19 +6,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deneme</title>
-   </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
 
 <body>
-    <input id="deger1" type="number" placeholder="Deger 1">
-    <input id="deger2" type="number" placeholder="Deger 2">
-    <a onclick="hesapla()">Hesapla</a>
-    <div id="sonuc">sonuc</div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <input id="deger1" class="btn-outline-dark" value="0" type="hidden" placeholder="Deger 1">
+                <input id="deger2" class="btn-outline-dark btn-lg" value="0" type="number" placeholder="Deger 2">
+                <div class="row recent">
+                   
+                        <button type="button" class="btn btn-warning"><a onclick="toplam()">+</a></button>
+                        <button type="button" class="btn btn-info"><a onclick="fark()">-</a></button>
+                        <button type="button" class="btn btn-danger"><a onclick="carpim()">x</a></button>
+                        <button type="button" class="btn btn-success"><a onclick="bolum()">/</a></button>
+                   
+                </div>
+
+
+                <div id="toplam" class="text-warning">toplam</div>
+                <div id="fark" class="text-info">fark</div>
+                <div id="carpim" class="text-danger">carpim</div>
+                <div id="bolum" class="text-success">bolum</div>
+
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item">
+                        <div id="gecmis" class="text-white-50 bg-dark"></div>
+                    </li>
+                </ol>
+
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <script>
-        function hesapla() {
+        function toplam() {
             var deger1 = document.getElementById('deger1').value;
             var deger2 = document.getElementById('deger2').value;
             var sonuc = parseInt(deger1) + parseInt(deger2);
-            document.getElementById('sonuc').innerHTML = sonuc;
+            document.getElementById('deger1').value = sonuc;
+            document.getElementById('deger2').value = ' ';
+            document.getElementById('toplam').innerHTML = sonuc;
+            document.getElementById('gecmis').innerHTML = document.getElementById('gecmis').innerHTML + "<p>" + sonuc + "</p>";
+        }
+        function fark() {
+            var deger1 = document.getElementById('deger1').value;
+            var deger2 = document.getElementById('deger2').value;
+            var sonuc = parseInt(deger1) - parseInt(deger2);
+            document.getElementById('deger1').value = sonuc;
+            document.getElementById('deger2').value = ' ';
+            document.getElementById('fark').innerHTML = sonuc;
+            document.getElementById('gecmis').innerHTML = document.getElementById('gecmis').innerHTML + "<p>" + sonuc + "</p>";
+        }
+        function carpim() {
+            var deger1 = document.getElementById('deger1').value;
+            var deger2 = document.getElementById('deger2').value;
+            var sonuc = parseInt(deger1) * parseInt(deger2);
+            document.getElementById('deger1').value = sonuc;
+            document.getElementById('deger2').value = ' ';
+            document.getElementById('carpim').innerHTML = sonuc;
+            document.getElementById('gecmis').innerHTML = document.getElementById('gecmis').innerHTML + "<p>" + sonuc + "</p>";
+
+        }
+        function bolum() {
+            var deger1 = document.getElementById('deger1').value;
+            var deger2 = document.getElementById('deger2').value;
+            var sonuc = parseInt(deger1) / parseInt(deger2);
+            document.getElementById('deger1').value = sonuc;
+            document.getElementById('deger2').value = ' ';
+            document.getElementById('bolum').innerHTML = sonuc;
+            document.getElementById('gecmis').innerHTML = document.getElementById('gecmis').innerHTML + "<p>" + sonuc + "</p>";
 
         }
     </script>
